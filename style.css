@@ -27,8 +27,9 @@ button {
 
   --background-color: #e3e3e3;
   --border-size: 2px;
+  --accent-color: #0af;
 }
-
+// Pop Button
 .btn.btn-border-pop::before {
   content: '';
   position: absolute;
@@ -47,4 +48,34 @@ button {
   left: calc(var(--border-size) * -2);
   right: calc(var(--border-size) * -2);
   bottom: calc(var(--border-size) * -2);
+}
+
+// Slide Button
+.btn.btn-background-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background-color: var(--accent-color);
+
+  transition: transform 300ms ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.btn.btn-background-slide:hover::before,
+.btn.btn-background-slide:focus::before {
+  transform: scaleX(1);
+}
+
+.btn.btn-background-slide {
+  z-index: 1;
+}
+
+.btn.btn-background-slide:hover,
+.btn.btn-background-slide:focus {
+  color: #fff;
 }
